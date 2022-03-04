@@ -30,19 +30,25 @@ if (isNaN(age) || isNaN(distance)) {
 let ticketPrice = distance * distanceMultiplier;
 console.log('ticket price multiplied', ticketPrice);
 
-if (age < 18 && age > 0) {
+if (age > 0 && age < 18) {
     ticketPrice = ticketPrice - (ticketPrice * discount20);
     console.log('You are underage, 20% discount - ', ticketPrice);
-} else if(age > 65){
+}else if(age > 65 && age <= 120){
     ticketPrice = ticketPrice - (ticketPrice * discount40);
     console.log('You are elderly, 40% discount - ', ticketPrice);
-} else if (age < 0 || age > 120) {
-    console.log('Get serious and insert your real age');    
+}else if (age < 0 || age > 120) {
+    console.log('Get serious and insert your real age'); 
 }else {
     console.log('You are between 18 and 65, you get full price - ', ticketPrice);
 }
 
+ticketPrice = ticketPrice.toFixed(2);
+console.log(ticketPrice);
 
+
+
+
+document.getElementById("ticket-price").innerText = `You pay: ${ticketPrice}€`;
 
 
 
